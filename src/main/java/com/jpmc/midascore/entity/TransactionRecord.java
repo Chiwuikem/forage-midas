@@ -2,6 +2,7 @@ package com.jpmc.midascore.entity;
 
 import jakarta.persistence.*;
 import java.time.Instant;
+import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "transaction_records")
@@ -24,6 +25,10 @@ public class TransactionRecord {
     private float amount;
 
     @Column(nullable = false)
+    private float incentive;
+
+
+    @Column(nullable = false)
     private Instant createdAt = Instant.now();
 
     public Long getId() { return id; }
@@ -36,6 +41,9 @@ public class TransactionRecord {
 
     public float getAmount() { return amount; }
     public void setAmount(float amount) { this.amount = amount; }
+
+    public double getIncentive() {return incentive;}
+    public void setIncentive(float incentive) {this.incentive = incentive; }
 
     public Instant getCreatedAt() { return createdAt; }
     public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
